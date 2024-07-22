@@ -1,0 +1,22 @@
+.slots-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .slot {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+  }
+  
+  .slot.booked {
+    background-color: #f8d7da;
+    cursor: not-allowed;
+  }
+  
+  .slot.selected {
+    background-color: #d4edda;
+  }

@@ -1,0 +1,65 @@
+.REACT-CALENDAR {
+    background: #e3f2fd; /* Light blue background */
+    border: 2px solid #64b5f6; /* Medium blue border */
+    border-radius: 15px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 320px;
+}
+
+.REACT-CALENDAR .react-calendar__navigation button {
+    background-color: #ff6347; /* Orange buttons */
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    margin: 2px;
+    padding: 10px 15px; /* Increased padding */
+    border-radius: 10px;
+    width: auto; /* Ensure width auto-adjusts */
+}
+
+.REACT-CALENDAR .react-calendar__navigation button:disabled {
+    background-color: #ff6347; /* Ensure disabled buttons also have the correct color */
+}
+
+.REACT-CALENDAR .react-calendar__navigation button:hover {
+    background-color: #e5533d; /* Darker orange on hover */
+}
+
+.REACT-CALENDAR .react-calendar__tile {
+    background: #bbdefb; /* Lighter blue tiles */
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.REACT-CALENDAR .react-calendar__tile--active {
+    background: #ff6347; /* Orange for active tiles */
+    color: white;
+}
+
+.REACT-CALENDAR .react-calendar__tile:hover {
+    background: #90caf9; /* Slightly darker blue on hover */
+}
+
+.REACT-CALENDAR .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    color: #1976d2; /* Dark blue for weekdays */
+}
+
+.REACT-CALENDAR .react-calendar__month-view__days__day--weekend {
+    color: #1e88e5; /* Medium blue for weekends */
+}
+
+.REACT-CALENDAR .react-calendar__tile--now {
+    background: #e3f2fd; /* Light blue for today */
+    border: 2px solid #ff6347; /* Orange border for today */
+}
+
+/* Highlight dates in July 2024 */
+.REACT-CALENDAR .react-calendar__tile--highlight {
+    background: #ff6347; /* Orange for highlight */
+    color: white;
+}

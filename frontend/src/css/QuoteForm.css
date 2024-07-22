@@ -1,0 +1,15 @@
+.btn-btn-primary-btn-block{
+    width: 40%; /* Adjust width as needed */
+    padding: 10px;
+    background-color: #79f06e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto;
+    display: block;
+    border-radius: 20px;
+}

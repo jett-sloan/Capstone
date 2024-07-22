@@ -1,14 +1,23 @@
 const db = require('../db');
+const moment = require('moment-timezone');
 
 class Order {
-  constructor(id, userId, day, time, createdAt, updatedAt) {
+  constructor(id, quoteId, day, time, createdAt, updatedAt,name,email,address) {
     this.id = id;
-    this.userId = userId;
+    this.quoteId = quoteId;
     this.day = day;
     this.time = time;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
+    this.name = name;
+    this.email = email;
+    this.address = address;
   }
+
+
+  static formatDate(date) {
+    return moment(date).tz('America/New_York').format('YYYY-MM-DD');
+}
 
   /** Find all orders */
   static async findAll() {
@@ -41,19 +50,26 @@ class Order {
   }
 
   /** Create a new order */
-  static async create(userId, day, time) {
+
+
+  static async create(quoteId, day, time,name,email,address ) {
+    const formattedDay = Order.formatDate(day);
     const res = await db.query(
-      'INSERT INTO orders (user_id, day, time) VALUES ($1, $2, $3) RETURNING *',
-      [userId, day, time]
+      'INSERT INTO orders (quote_id, day, time,name,email,address) VALUES ($1, $2, $3,$4,$5,$6) RETURNING *',
+      [quoteId, formattedDay, time,name,email,address]
     );
+    
     const newOrder = res.rows[0];
     return new Order(
       newOrder.order_id,
-      newOrder.user_id,
+      newOrder.quote_id,
       newOrder.day,
       newOrder.time,
       newOrder.created_at,
-      newOrder.updated_at
+      newOrder.updated_at,
+      newOrder.name,
+      newOrder.email,
+      newOrder.address
     );
   }
 

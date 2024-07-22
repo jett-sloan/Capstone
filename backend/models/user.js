@@ -19,21 +19,25 @@ class User {
   /** Find a single user by ID */
   static async findOne(email) {
     try {
-        const res = await db.query('SELECT * FROM users WHERE email = $1', [email]);
-        const row = res.rows[0];
-        console.log(email); // Make sure this is within the method scope
+      const res = await db.query('SELECT * FROM users WHERE email = $1', [email]);
+      const row = res.rows[0];
+      console.log(email); // Make sure this is within the method scope
 
-        if (!row) {
-            throw new Error(`No user found with ${email}`);
-        }
-        // Adjust the property names to match your database columns
-        return new User(row.userid, row.first_name, row.last_name, row.email, row.password);
+      if (!row) {
+        throw new Error(`No user found with ${email}`);
+      }
+      // Adjust the property names to match your database columns
+      return new User(row.userid, row.firstname, row.lastname, row.email, row.password);
     } catch (error) {
-        console.error('Error in findOne method:', error);
-        throw error; // Rethrow the error to be handled by the caller
+      console.error('Error in findOne method:', error);
+      throw error; // Rethrow the error to be handled by the caller
     }
-}
-
+  }
+//  static async fetchOrderCountByEmail(email) {
+//    const query = 'SELECT COUNT(*) AS order_count FROM orders WHERE email = $1';
+//    const result = await db.query(query, [email]);
+//    return result.rows.length > 0 ? result.rows[0].order_count : 0;
+//  }
 
 
   /** Create a new user */

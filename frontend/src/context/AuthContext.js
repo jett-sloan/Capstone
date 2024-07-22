@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -9,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
-        console.log('THIS IS THE STOREDUSER'.storedUser)
+        
         setUser(JSON.parse(storedUser));
       } catch (error) {
         console.error('Error parsing user data:', error);
@@ -23,15 +22,15 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
   };
-
-  const logout = () => {
+  const logout = (navigate) => {
     setUser(null);
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    navigate('/')
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout}}>
       {children}
     </AuthContext.Provider>
   );

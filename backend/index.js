@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -6,7 +7,7 @@ const quotesRoutes = require('./clientRoutes/quotes');
 const usersRoute = require('./clientRoutes/users');
 const ordersRoute = require('./clientRoutes/orders');
 const paymentsRoute = require('./clientRoutes/payments');
-const protectedRoute = require('./clientRoutes/protectedRoute')
+const availabilityRoute = require('./clientRoutes/availability')
 
 const app = express();
 
@@ -16,13 +17,16 @@ app.set('view engine', 'ejs');
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(morgan('tiny')); // Logging middleware
+app.use(bodyParser.json()); // For parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/quotes', quotesRoutes);
 app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
-app.use('/payments', paymentsRoute); 
-app.use('/protected-route', protectedRoute)
+app.use('/payments', paymentsRoute);
+app.use('/availability', availabilityRoute) 
+
 
 // Error handling middleware
 app.use(function(err, req, res, next) {
@@ -41,8 +45,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// user name last name password email 
-// quote they windows adrress 
-// orders userID servicesId day and time 
-// payment how much they own and is paid orderID paymentAmount 
+
 

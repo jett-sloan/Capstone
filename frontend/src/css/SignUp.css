@@ -1,0 +1,94 @@
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh; /* Full viewport height */
+    padding-top: 50px;
+    background-color: lightblue; /* Adjust this value to control how high it appears */
+  }
+  .left-div h1 {
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    color: #ff6347; /* Example funky color */
+  }
+.center-div {
+    position: relative;
+    width: 1250px;
+    height: 500px;
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url('https://tse2.mm.bing.net/th?id=OIP.zAAVxlSOzj_RpEnku9l8oAHaH5&pid=Api&P=0&h=220') ;
+  }
+
+  
+   .left-div { 
+     width: 625px; 
+     height: 500px; 
+     border: 1px solid #ccc; 
+     border-radius: 5px; 
+     background-color: #f9f9f9; 
+     padding-left: 20px; 
+     padding-right: 20px; 
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+     position: absolute; 
+     left: 0; 
+   } 
+  
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+   label {
+    margin-bottom: 5px;
+    font-weight: 300; /* Use a lighter font weight */
+    color: #555; /* Use a softer color */
+  }
+  .input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Labels on top of inputs */
+    margin-right: 15px;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column; /* Labels on top of inputs */
+    margin-bottom: 15px;
+  }
+  
+  .input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .signup-button {
+    width: 40%; /* Adjust width as needed */
+    padding: 10px;
+    background-color: #79f06e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto;
+    display: block; /* Ensure block-level display for centering */
+  }
+  
+  .signup-button:hover {
+    background-color: #056c2c;
+  }
+  
