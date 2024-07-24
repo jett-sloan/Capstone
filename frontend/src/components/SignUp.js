@@ -30,7 +30,7 @@ const SignUp = () => {
       }
 
       // Assuming backend endpoint for registration
-      const response = await axios.post('http://localhost:5000/users/register', formData);
+        await axios.post('http://localhost:5000/users/register', formData);
       navigate('/login')
       // Optionally navigate to login page or show success message
     } catch (error) {
