@@ -1,5 +1,25 @@
 {
-    "rewrites":  [
-      {"source": "/(.*)", "destination": "/frontend/index.js"}
-    ]
-  }
+  "projects": [
+    {
+      "name": "frontend",
+      "path": "frontend",
+      "buildCommand": "npm run build",
+      "outputDirectory": "build"
+    },
+    {
+      "name": "backend",
+      "path": "backend",
+      "buildCommand": "npm install",
+      "outputDirectory": "."
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"
+    }
+  ]
