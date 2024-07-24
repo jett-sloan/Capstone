@@ -15,7 +15,7 @@ const Profile = () => {
       fetchOrderHistory();
       fetchLoyaltyStatus();
     }
-  }, [user]);
+  }, [user,fetchOrderHistory,fetchLoyaltyStatus]);
 
   const fetchOrderHistory = async () => {
     try {
