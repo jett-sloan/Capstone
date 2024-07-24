@@ -81,7 +81,7 @@ const Login = () => {
         </div>
       </div>
       <div id="picture">
-        <img src='https://media.istockphoto.com/vectors/child-cleaning-window-vector-id627038840?k=6&m=627038840&s=170667a&w=0&h=d74vuOkRdrSoPTJpm5FrhA4PEbLkb1l0AjHGudlHC1w='/>
+        <img alt="hi" src='https://media.istockphoto.com/vectors/child-cleaning-window-vector-id627038840?k=6&m=627038840&s=170667a&w=0&h=d74vuOkRdrSoPTJpm5FrhA4PEbLkb1l0AjHGudlHC1w='/>
         </div>
     </div>
     
