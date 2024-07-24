@@ -52,8 +52,8 @@ const OrderForm = ({ setIsAllowed }) => {
     };
 
     try {
-      await axios.post('http://localhost:5000/availability', { day, daytime: time });
-      await axios.post('http://localhost:5000/orders', orderData);
+      await axios.post('https://capstone-backend-self.vercel.app/availability', { day, daytime: time });
+      await axios.post('https://capstone-backend-self.vercel.app/orders', orderData);
 
       const emailData = {
         user_name: formData.name,
