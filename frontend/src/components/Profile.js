@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
@@ -10,30 +10,30 @@ const Profile = () => {
   const [orderHistory, setOrderHistory] = useState([]);
   const [loyaltyStatus, setLoyaltyStatus] = useState('');
 
-  useEffect(() => {
-    if (user) {
-      fetchOrderHistory();
-      fetchLoyaltyStatus();
-    }
-  }, [user,fetchOrderHistory,fetchLoyaltyStatus]);
-
-  const fetchOrderHistory = async () => {
+  const fetchOrderHistory = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:5000/orders/find?email=${user.email}`);
       setOrderHistory(response.data);
     } catch (error) {
       console.error('Error fetching order history:', error);
     }
-  };
+  }, [user.email]);
 
-  const fetchLoyaltyStatus = async () => {
+  const fetchLoyaltyStatus = useCallback(async () => {
     try {
       const response = await axios.get(`http://localhost:5000/orders/loyalty-status?email=${user.email}`);
       setLoyaltyStatus(response.data.status); // Assuming response.data.status is the loyalty status message
     } catch (error) {
       console.error('Error fetching loyalty status:', error);
     }
-  };
+  }, [user.email]);
+
+  useEffect(() => {
+    if (user) {
+      fetchOrderHistory();
+      fetchLoyaltyStatus();
+    }
+  }, [user, fetchOrderHistory, fetchLoyaltyStatus]);
 
   const handleRedeem = async () => {
     try {
@@ -44,8 +44,7 @@ const Profile = () => {
       fetchLoyaltyStatus();
       fetchOrderHistory();
     } catch (error) {
-        console.error('Error redeeming free service:', error.message);
-      
+      console.error('Error redeeming free service:', error.message);
     }
   };
 
@@ -87,7 +86,7 @@ const Profile = () => {
           <hr />
           <Link to="/quote">
             <Button variant="primary">Request a Quote</Button>
-          </Link>{' '}
+          </Link>
         </Card.Body>
       </Card>
     </Container>
@@ -95,5 +94,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
