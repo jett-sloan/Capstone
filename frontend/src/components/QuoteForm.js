@@ -31,7 +31,7 @@ const QuoteForm = ({ setIsAllowed }) => {
     e.preventDefault();
     try {
 
-      const response = await axios.post('http://localhost:5000/quotes', formData);
+      const response = await axios.post('https://capstone-backend-self.vercel.app/quotes', formData);
       const { quoteId } = response.data;
       setQuote(response.data);
       setIsAllowed(true);
