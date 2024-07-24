@@ -17,7 +17,7 @@ const QuoteForm = ({ setIsAllowed }) => {
     slidingDoors: '',
     stories: ''
   });
-  const [quote, setQuote] = useState(null);
+  const [setQuote] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
