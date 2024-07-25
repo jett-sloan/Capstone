@@ -17,7 +17,6 @@ const QuoteForm = ({ setIsAllowed }) => {
     slidingDoors: '',
     stories: ''
   });
-  const [setQuote] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +32,6 @@ const QuoteForm = ({ setIsAllowed }) => {
 
       const response = await axios.post('https://capstone-backend-self.vercel.app/quotes', formData);
       const { quoteId } = response.data;
-      setQuote(response.data);
       setIsAllowed(true);
       navigate(`/quote-details/${quoteId}`)
     } catch (error) {
