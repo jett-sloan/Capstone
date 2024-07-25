@@ -11,6 +11,7 @@ const availabilityRoute = require('./clientRoutes/availability');
 
 const app = express();
 
+
 // CORS Configuration
 const allowedOrigins = ['https://capstone-frontend-jade.vercel.app'];
 
