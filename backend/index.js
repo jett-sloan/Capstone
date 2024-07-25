@@ -7,26 +7,39 @@ const quotesRoutes = require('./clientRoutes/quotes');
 const usersRoute = require('./clientRoutes/users');
 const ordersRoute = require('./clientRoutes/orders');
 const paymentsRoute = require('./clientRoutes/payments');
-const availabilityRoute = require('./clientRoutes/availability')
+const availabilityRoute = require('./clientRoutes/availability');
 
 const app = express();
 
+// CORS Configuration
+const allowedOrigins = ['https://capstone-frontend-jade.vercel.app'];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // Middleware
-app.use(cors()); // Enable CORS for all routes
 app.set('view engine', 'ejs');
 app.use(express.json()); // Parse JSON bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(morgan('tiny')); // Logging middleware
 app.use(bodyParser.json()); // For parsing application/json
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
 // Routes
 app.use('/quotes', quotesRoutes);
 app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
 app.use('/payments', paymentsRoute);
-app.use('/availability', availabilityRoute) 
-
+app.use('/availability', availabilityRoute);
 
 // Error handling middleware
 app.use(function(err, req, res, next) {
