@@ -41,11 +41,20 @@ router.post("/", async function(req, res, next) {
 
 
 router.get('/:id', async (req, res) => {
-  const result = await db.query(
-    `SELECT * FROM quotes WHERE id = $1
-`,
-  [req.params.id]
-);
-return res.json(result.rows[0]);
+  try {
+    const result = await db.query(
+      'SELECT * FROM quotes WHERE id = $1',
+      [req.params.id]
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Quote not found' });
+    }
+    return res.json(result.rows[0]);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
 });
+
+
 module.exports = router;
