@@ -12,7 +12,7 @@ const Profile = () => {
 
   const fetchOrderHistory = useCallback(async () => {
     try {
-      const response = await axios.get(https://capstone-sigma-three.vercel.app/orders/find?email=${user.email}`);
+      const response = await axios.get(`https://capstone-sigma-three.vercel.app/orders/find?email=${user.email}`);
       setOrderHistory(response.data);
     } catch (error) {
       console.error('Error fetching order history:', error);
