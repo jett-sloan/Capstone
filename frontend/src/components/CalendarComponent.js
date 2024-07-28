@@ -15,7 +15,7 @@ const CalendarComponent = () => {
     const fetchAvailableSlots = (day) => {
         const dayString = day.toString(); // Use the default format of the date
 
-        axios.get('https://capstone-backend-self.vercel.app/availability', { params: { day: dayString } })
+        axios.get('https://capstone-sigma-three.vercel.app/availability', { params: { day: dayString } })
             .then(response => {
                 console.log('Available slots:', response.data);
                 setAvailableSlots(response.data.availableSlots);
