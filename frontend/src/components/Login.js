@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://capstone-backend-self.vercel.app/users/login', formData);
+      const response = await axios.post('https://capstone-sigma-three.vercel.app/users/login', formData);
       const { token, user } = response.data;
 
       // Store token and user info in local storage
