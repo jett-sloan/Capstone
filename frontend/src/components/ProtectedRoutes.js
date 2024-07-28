@@ -10,7 +10,7 @@ const ProtectedRoutes = ({ children }) => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('https://capstone-backend-self.vercel.app/protected-route', { headers: { 'Authorization': token } });
+        const response = await axios.get('https://capstone-sigma-three.vercel.app/protected-route', { headers: { 'Authorization': token } });
         setData(response.data);
       } catch (error) {
         console.error('Error fetching protected data:', error);
