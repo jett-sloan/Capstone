@@ -6,7 +6,6 @@ const morgan = require('morgan');
 const quotesRoutes = require('./clientRoutes/quotes');
 const usersRoute = require('./clientRoutes/users');
 const ordersRoute = require('./clientRoutes/orders');
-const paymentsRoute = require('./clientRoutes/payments');
 const availabilityRoute = require('./clientRoutes/availability');
 
 const app = express();
