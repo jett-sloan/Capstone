@@ -13,7 +13,7 @@ const QuoteDetails = ({ setIsAllowed }) => {
   useEffect(() => {
     const fetchQuote = async () => {
       try {
-        const response = await axios.get(`https://capstone-backend-self.vercel.app/quotes/${id}`);
+        const response = await axios.get(`https://capstone-sigma-three.vercel.app/quotes/${id}`);
         setQuote(response.data); 
       } catch (error) {
         console.error('Error fetching quote:', error);
