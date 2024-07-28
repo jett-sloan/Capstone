@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x
 app.use('/quotes', quotesRoutes);
 app.use('/users', usersRoute);
 app.use('/orders', ordersRoute);
-app.use('/payments', paymentsRoute);
+
 app.use('/availability', availabilityRoute);
 
 // Error handling middleware
