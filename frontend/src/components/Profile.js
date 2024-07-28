@@ -12,7 +12,7 @@ const Profile = () => {
 
   const fetchOrderHistory = useCallback(async () => {
     try {
-      const response = await axios.get(https://capstone-backend-self.vercel.app/orders/find?email=${user.email}`);
+      const response = await axios.get(https://capstone-sigma-three.vercel.app/orders/find?email=${user.email}`);
       setOrderHistory(response.data);
     } catch (error) {
       console.error('Error fetching order history:', error);
@@ -21,7 +21,7 @@ const Profile = () => {
 
   const fetchLoyaltyStatus = useCallback(async () => {
     try {
-      const response = await axios.get(`https://capstone-backend-self.vercel.app/orders/loyalty-status?email=${user.email}`);
+      const response = await axios.get(`https://capstone-sigma-three.vercel.app/orders/loyalty-status?email=${user.email}`);
       setLoyaltyStatus(response.data.status); // Assuming response.data.status is the loyalty status message
     } catch (error) {
       console.error('Error fetching loyalty status:', error);
@@ -37,7 +37,7 @@ const Profile = () => {
 
   const handleRedeem = async () => {
     try {
-      const response = await axios.post('https://capstone-backend-self.vercel.app/orders/redeem', { email: user.email });
+      const response = await axios.post('https://capstone-sigma-three.vercel.app/orders/redeem', { email: user.email });
       console.log('Free service redeemed:', response.data);
 
       // Refetch loyalty status and order history after redemption
