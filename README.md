@@ -1,6 +1,6 @@
 # Capstone
 My Window Washing Service
-My website is url is pending 
+My website is url is https://capstone-frontend-jade.vercel.app/ 
 Description
 My Window Washing Service is a web application designed to streamline the process of managing window cleaning appointments and quotes. It allows users to request quotes, schedule appointments, and view their account details. The website is built with a modern tech stack and provides a user-friendly interface for both customers and administrators.
 
